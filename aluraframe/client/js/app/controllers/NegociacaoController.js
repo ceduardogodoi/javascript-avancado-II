@@ -6,8 +6,9 @@ class NegociacaoController {
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
-        this._listaNegociacoes = new ListaNegociacoes(this, function(model) {
-
+        this._listaNegociacoes = new ListaNegociacoes(model => {
+            // o escopo da arrow function é léxico,
+            // portanto o escopo de this abaixo desta classe é NegociacaoController
             this._negociacoesView.update(model);
         });
         
